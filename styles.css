@@ -10,20 +10,24 @@ body {
     border-radius: 10px;
 }
 
-.month-slots {
+#month-slots {
     display: inline-flex;
     flex-direction: column;
-    height: 1lh;
+    align-items: center;
     overflow: hidden;
+    margin-left: -20px;
+    padding-left: 20px;
+    margin-right: -20px;
+    padding-right: 20px;
 }
 
-.slot-value {
+#month-slots .slot-value {
     transform: translateY(-7lh);
     animation: 1.5s slot-machine;
     user-select: none;
 }
 
-.slot-value:last-child {
+#month-slots .slot-value:last-child {
     user-select: auto;
 }
 

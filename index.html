@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="hero">
-            <h1>Hi, I'm<span class="month-slots">
+            <h1>Hi, I'm <span id="month-slots">
                 <span aria-hidden class="slot-value">January</span>
                 <span aria-hidden class="slot-value">February</span>
                 <span aria-hidden class="slot-value">March</span>
@@ -17,11 +17,17 @@
                 <span aria-hidden class="slot-value">June</span>
                 <span aria-hidden class="slot-value">July</span>
                 <span class="slot-value">August</span>
-            </span>Deer!</h1>
+            </span> Deer!</h1>
             <p>
                 Developer, Close-Up Magician, Science Communicator, Classical Pianist.
             </p>
         </div>
+        <script>
+            const monthSlots = document.querySelector('#month-slots');
+            const august = monthSlots.querySelector('#month-slots .slot-value:last-child');
+            monthSlots.style.width = august.offsetWidth + 'px';
+            monthSlots.style.height = august.offsetHeight + 'px';
+        </script>
 
         <div class="hobby">
             <h2>Developer</h2>
