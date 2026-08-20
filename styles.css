@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 50px;
+}
+
+.hero {
+    background-color: lightgray;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.month-slots {
+    display: inline-flex;
+    flex-direction: column;
+    height: 1lh;
+    overflow: hidden;
+}
+
+.slot-value {
+    transform: translateY(-7lh);
+    animation: 1.5s slot-machine;
+    user-select: none;
+}
+
+.slot-value:last-child {
+    user-select: auto;
+}
+
+@keyframes slot-machine {
+    0% {transform: translateY(1lh);}
+}
