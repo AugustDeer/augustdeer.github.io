@@ -206,6 +206,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      inter-ui:
+        specifier: ^4.1.1
+        version: 4.1.1
     devDependencies:
       parcel:
         specifier: ^2.16.4
@@ -837,6 +841,10 @@ packages:
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
+
+  inter-ui@4.1.1:
+    resolution: {integrity: sha512-451h0J29HyOmA+JXgSi/6M12tL7ZCZ8arYKZUXiOXTJpJbAKqJvFh3k5SiV3x7tKe0C0KyrKUUiQIvvZ2PQDcA==}
+    engines: {node: '>=16.0.0'}
 
   is-extglob@2.1.1:
     resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
@@ -1835,6 +1843,8 @@ snapshots:
       type-fest: 0.20.2
 
   has-flag@4.0.0: {}
+
+  inter-ui@4.1.1: {}
 
   is-extglob@2.1.1: {}
 
