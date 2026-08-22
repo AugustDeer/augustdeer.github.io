@@ -1,21 +1,28 @@
 ---
 import Slots from "./Slots.astro";
 
-const months = ["January", "February", "March", "April", "May", "June", "July"];
+const months = [
+  "September",
+  "October",
+  "November",
+  "December",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+];
 ---
 
-<div class="hero">
-  <h1>
-    Hi, I'm <Slots slots={months}>August</Slots> Deer!
+<div class="relative mx-auto max-w-2xl rounded-xl bg-gray-600 py-6">
+  <h1 class="text-center text-6xl/normal font-normal text-gray-50">
+    Hi, I'm <span class="font-extralight">
+      <Slots slots={months}><span class="font-bold">August</span></Slots>
+    </span> Deer!
   </h1>
-  <p>Developer, Close-Up Magician, Science Communicator, Classical Pianist.</p>
+  <p class="text-center text-xl/loose font-light tracking-tight text-gray-100">
+    Developer, Close-Up Magician, Science Communicator, Classical Pianist.
+  </p>
 </div>
-
-<style>
-  .hero {
-    background-color: lightgray;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-  }
-</style>

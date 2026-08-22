@@ -8,7 +8,7 @@ const { slots = [] } = Astro.props;
 const slotCount = slots.length;
 ---
 
-<slot-machine class="slots">
+<slot-machine class="box-content inline-flex h-lh flex-col overflow-hidden">
   {
     slots.map((slot) => (
       <span class="slot-value" aria-hidden>
@@ -19,18 +19,6 @@ const slotCount = slots.length;
   <span class="slot-value"><slot /></span>
 </slot-machine>
 
-<style>
-  slot-machine {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    padding-inline: 1em;
-    margin-inline: -1em;
-    height: 1lh;
-  }
-</style>
-
 <style define:vars={{ slotCount }}>
   .slot-value {
     transform: translateY(calc(var(--slotCount) * -1lh));
@@ -40,7 +28,7 @@ const slotCount = slots.length;
       user-select: none;
     }
   }
-  
+
   @keyframes slot-machine {
     0% {
       transform: translateY(1lh);
@@ -51,11 +39,11 @@ const slotCount = slots.length;
 <script>
   class SlotMachine extends HTMLElement {
     connectedCallback() {
-      const final = this.querySelector(".slot-value:last-child");
+      const final = this.querySelector(".slot-value:last-child *");
       console.log(final);
       if (final) {
         const width = final.getBoundingClientRect().width;
-        this.style.width = width.toString() + 'px';
+        this.style.width = width.toString() + "px";
       }
     }
   }
