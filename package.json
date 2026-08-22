@@ -3,9 +3,9 @@
   "source": "src/index.html",
   "browserslist": "defaults",
   "scripts": {
-    "start": "parcel serve",
-    "build": "parcel build",
-    "clean": "rm -r dist/ .parcel-cache/"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devEngines": {
     "packageManager": {
@@ -14,10 +14,7 @@
       "onFail": "download"
     }
   },
-  "devDependencies": {
-    "parcel": "^2.16.4"
-  },
   "dependencies": {
-    "inter-ui": "^4.1.1"
+    "astro": "^7.2.4"
   }
 }

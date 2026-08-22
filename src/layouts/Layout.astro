@@ -1,0 +1,24 @@
+---
+import { Font } from "astro:assets";
+---
+
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>August Deer</title>
+    <Font cssVariable="--font-inter" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: var(--font-inter);
+    padding: 50px;
+  }
+</style>

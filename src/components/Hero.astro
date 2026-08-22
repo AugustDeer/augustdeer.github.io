@@ -1,0 +1,55 @@
+<div class="hero">
+  <h1>
+    Hi, I'm&nbsp;
+    <span id="month-slots">
+      <!-- "August" must be the widest month name for the text to align properly. -->
+      <span class="slot-value" aria-hidden>Janury</span>
+      <span class="slot-value" aria-hidden>Febray</span>
+      <span class="slot-value" aria-hidden>March</span>
+      <span class="slot-value" aria-hidden>April</span>
+      <span class="slot-value" aria-hidden>May</span>
+      <span class="slot-value" aria-hidden>June</span>
+      <span class="slot-value" aria-hidden>July</span>
+      <span class="slot-value" id="august">August</span>
+    </span>
+    &nbsp;Deer!
+  </h1>
+  <p>Developer, Close-Up Magician, Science Communicator, Classical Pianist.</p>
+</div>
+
+<style>
+  .hero {
+    background-color: lightgray;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  #month-slots {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    margin-left: -20px;
+    padding-left: 20px;
+    margin-right: -20px;
+    padding-right: 20px;
+    height: 1lh;
+
+    .slot-value {
+      transform: translateY(-7lh);
+      animation: 1.5s slot-machine;
+      user-select: none;
+
+      &:last-child {
+        user-select: auto;
+      }
+    }
+  }
+
+  @keyframes slot-machine {
+    0% {
+      transform: translateY(1lh);
+    }
+  }
+</style>
