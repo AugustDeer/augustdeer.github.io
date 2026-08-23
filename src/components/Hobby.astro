@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="p-10">
+  <div
+    class="flex flex-wrap sm:flex-nowrap items-center gap-5 rounded-4xl bg-emerald-900 p-5 outline-2 outline-emerald-500"
+  >
+    <div class="basis-full sm:basis-1/4">
+      <h2 class="text-center sm:text-right text-2xl font-light text-balance">
+        <Fragment set:html={name} />
+      </h2>
+    </div>
+    <div class="basis-full sm:basis-3/4 text-lg text-pretty">
+      <slot />
+    </div>
+  </div>
+</div>
