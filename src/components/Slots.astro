@@ -8,20 +8,21 @@ const { slots = [] } = Astro.props;
 const slotCount = slots.length;
 ---
 
-<slot-machine class="box-content inline-flex h-lh flex-col overflow-hidden">
+<slot-machine
+  class="box-content h-lh flex-col place-items-center content-center overflow-hidden px-10 -mx-10"
+>
   {
     slots.map((slot) => (
-      <span class="slot-value" aria-hidden>
+      <span hidden aria-hidden>
         {slot}
       </span>
     ))
   }
-  <span class="slot-value"><slot /></span>
+  <span><slot /></span>
 </slot-machine>
 
 <style define:vars={{ slotCount }}>
-  .slot-value {
-    transform: translateY(calc(var(--slotCount) * -1lh));
+  span {
     animation: 1.5s slot-machine;
 
     &:not(:last-child) {
@@ -33,18 +34,38 @@ const slotCount = slots.length;
     0% {
       transform: translateY(1lh);
     }
+    100% {
+      transform: translateY(calc(var(--slotCount) * -1lh));
+    }
   }
 </style>
 
 <script>
   class SlotMachine extends HTMLElement {
     connectedCallback() {
-      const final = this.querySelector(".slot-value:last-child *");
-      console.log(final);
+      this.classList.add("inline-flex")
+
+      const slots = Array.from(this.children);
+
+      const final = slots.at(-1);
+      const rest = slots.slice(0,-1);
+
       if (final) {
         const width = final.getBoundingClientRect().width;
         this.style.width = width.toString() + "px";
       }
+
+      for (const slot of rest) {
+        slot.removeAttribute("hidden");
+      }
+
+      this.addEventListener("animationend", () => {
+        for (const slot of rest) {
+          slot.remove();
+        }
+        this.style.removeProperty("width");
+        this.classList.remove("inline-flex");
+      })
     }
   }
 
