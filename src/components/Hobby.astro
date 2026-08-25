@@ -8,14 +8,14 @@ const { name } = Astro.props;
 
 <div class="p-10">
   <div
-    class="flex flex-wrap sm:flex-nowrap items-center gap-5 rounded-4xl bg-emerald-900 p-5 outline-2 outline-emerald-500"
+    class="flex flex-wrap items-center gap-5 rounded-4xl bg-emerald-900 p-5 outline-2 outline-emerald-500 sm:flex-nowrap"
   >
     <div class="basis-full sm:basis-1/4">
-      <h2 class="text-center sm:text-right text-2xl font-light text-balance">
+      <h2 class="text-center text-2xl font-light text-balance sm:text-right">
         <Fragment set:html={name} />
       </h2>
     </div>
-    <div class="basis-full sm:basis-3/4 text-lg text-pretty">
+    <div class="basis-full text-lg text-pretty sm:basis-3/4">
       <slot />
     </div>
   </div>

@@ -9,7 +9,7 @@ const slotCount = slots.length;
 ---
 
 <slot-machine
-  class="box-content h-lh flex-col place-items-center content-center overflow-hidden px-10 -mx-10"
+  class="-mx-10 box-content h-lh flex-col place-items-center content-center overflow-hidden px-10"
 >
   {
     slots.map((slot) => (
@@ -43,12 +43,12 @@ const slotCount = slots.length;
 <script>
   class SlotMachine extends HTMLElement {
     connectedCallback() {
-      this.classList.add("inline-flex")
+      this.classList.add("inline-flex");
 
       const slots = Array.from(this.children);
 
       const final = slots.at(-1);
-      const rest = slots.slice(0,-1);
+      const rest = slots.slice(0, -1);
 
       if (final) {
         const width = final.getBoundingClientRect().width;
@@ -65,7 +65,7 @@ const slotCount = slots.length;
         }
         this.style.removeProperty("width");
         this.classList.remove("inline-flex");
-      })
+      });
     }
   }
 
