@@ -1,0 +1,9 @@
+[tools]
+node = "24"
+
+[settings]
+# Read the pnpm version from package.json
+idiomatic_version_file_enable_tools = ["pnpm"]
+
+[env]
+_.path = ["{{config_root}}/node_modules/.bin"]
