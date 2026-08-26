@@ -24,13 +24,13 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.23.0",
+      "version": "^11.24.0",
       "onFail": "download"
     }
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.2.4",
+    "astro": "^7.2.7",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
