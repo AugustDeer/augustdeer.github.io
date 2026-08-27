@@ -16,13 +16,17 @@ const months = [
 ];
 ---
 
-<h1 class="text-center text-4xl/normal font-semibold text-balance text-white">
-  Hi, I'm <span class="font-extralight">
-    <Slots slots={months}><span class="font-semibold">August</span></Slots>
-  </span> Deer!
-</h1>
-<p
-  class="mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-gray-300"
->
-  Developer, Close-Up Magician, Science Communicator, Classical Pianist.
-</p>
+<div class="h-screen flex">
+  <div class="m-auto">
+    <h1 class="text-center text-4xl/normal font-semibold text-balance text-white">
+      Hi, I'm <span class="font-extralight">
+        <Slots slots={months}><span class="font-semibold">August</span></Slots>
+      </span> Deer!
+    </h1>
+    <p
+      class="mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-gray-300"
+    >
+      Developer, Close-Up Magician, Science Communicator, Classical Pianist.
+    </p>
+  </div>
+</div>
