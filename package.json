@@ -4,7 +4,8 @@
   "browserslist": "defaults",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "check": "astro check",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "prettier": {

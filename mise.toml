@@ -7,3 +7,26 @@ idiomatic_version_file_enable_tools = ["pnpm"]
 
 [env]
 _.path = ["{{config_root}}/node_modules/.bin"]
+
+[tasks.install]
+run = "pnpm install"
+sources = ["package.json", "pnpm-lock.yaml", "mise.toml"]
+outputs = ["node_modules/.pnpm/lock.yaml"]
+
+[tasks.dev]
+run = "pnpm dev"
+depends = ["install"]
+
+[tasks.check]
+run = "pnpm check"
+depends = ["install"]
+
+[tasks.build]
+run = "pnpm build"
+depends = ["check"]
+sources = ["src/**/*", "package.json"]
+outputs = ["dist/**/*"]
+
+[tasks.preview]
+run = "pnpm preview"
+depends = ["build"]
