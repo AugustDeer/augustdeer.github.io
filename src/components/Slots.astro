@@ -9,7 +9,7 @@ const slotCount = slots.length;
 ---
 
 <slot-machine
-  class="-mx-10 box-content h-lh flex-col place-items-center content-center overflow-hidden px-10"
+  class="box-content h-lh flex-col place-items-center content-center overflow-hidden"
 >
   {
     slots.map((slot) => (
@@ -26,7 +26,10 @@ const slotCount = slots.length;
     animation: 1.5s slot-machine;
 
     &:not(:last-child) {
+      display: flex;
       user-select: none;
+      width: 0;
+      justify-content: center;
     }
   }
 
@@ -43,29 +46,28 @@ const slotCount = slots.length;
 <script>
   class SlotMachine extends HTMLElement {
     connectedCallback() {
-      this.classList.add("inline-flex");
+      const ANIMATING_CLASSES = ["inline-flex", "-mx-10", "px-10"]
+
+      this.classList.add(...ANIMATING_CLASSES);
 
       const slots = Array.from(this.children);
 
-      const final = slots.at(-1);
       const rest = slots.slice(0, -1);
-
-      if (final) {
-        const width = final.getBoundingClientRect().width;
-        this.style.width = width.toString() + "px";
-      }
 
       for (const slot of rest) {
         slot.removeAttribute("hidden");
       }
 
-      this.addEventListener("animationend", () => {
-        for (const slot of rest) {
-          slot.remove();
-        }
-        this.style.removeProperty("width");
-        this.classList.remove("inline-flex");
-      });
+      this.addEventListener(
+        "animationend",
+        () => {
+          for (const slot of rest) {
+            slot.remove();
+          }
+          this.classList.remove(...ANIMATING_CLASSES);
+        },
+        { once: true },
+      );
     }
   }
 
