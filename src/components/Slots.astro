@@ -13,7 +13,7 @@ const slotCount = slots.length;
 >
   {
     slots.map((slot) => (
-      <span hidden aria-hidden>
+      <span class="font-extralight" hidden aria-hidden>
         {slot}
       </span>
     ))
@@ -46,7 +46,7 @@ const slotCount = slots.length;
 <script>
   class SlotMachine extends HTMLElement {
     connectedCallback() {
-      const ANIMATING_CLASSES = ["inline-flex", "-mx-10", "px-10"]
+      const ANIMATING_CLASSES = ["inline-flex", "-mx-10", "px-10"];
 
       this.classList.add(...ANIMATING_CLASSES);
 
