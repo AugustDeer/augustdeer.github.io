@@ -1,26 +1,14 @@
 {
   "name": "webdev-test",
-  "source": "src/index.html",
-  "browserslist": "defaults",
+  "author": "August Deer <august@augustdeer.com> (https://augustdeer.com)",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro build",
     "preview": "astro preview"
-  },
-  "prettier": {
-    "plugins": [
-      "prettier-plugin-astro",
-      "prettier-plugin-tailwindcss"
-    ],
-    "overrides": [
-      {
-        "files": "*.astro",
-        "options": {
-          "parser": "astro"
-        }
-      }
-    ]
   },
   "devEngines": {
     "packageManager": {
