@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "command": "astro dev",
+      "name": "Run pnpm dev",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ]
+}
