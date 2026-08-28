@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Slots from "../components/Slots.astro";
+import SlotMachine from "../components/SlotMachine.astro";
 import Hobby from "../components/Hobby.astro";
 
 const months = [
@@ -19,50 +19,59 @@ const months = [
 ---
 
 <Layout>
-  <div
-    class="relative grid min-h-screen grid-cols-1 place-items-center content-center-safe"
-  >
-    <h1
-      class="relative z-10 text-center text-4xl/normal font-bold tracking-wide text-balance text-white"
+  <div class="relative min-h-screen place-items-center overflow-hidden">
+    <div
+      class="absolute inset-0 bg-radial from-transparent from-90% to-emerald-500 bg-size-[16px_16px] bg-fixed"
     >
-      Hi, I'm <Slots slots={months}>August</Slots>
-      <div
-        class="absolute inset-0 top-[-1lh] -z-10 h-full w-60 rotate-12 content-around place-self-center rounded-full bg-emerald-700 blur-2xl select-none"
+    </div>
+    <div
+      class="fixed grid min-h-screen grid-cols-1 place-items-center"
+    >
+      <h1
+        class="relative z-10 text-center text-4xl/normal font-bold tracking-wide text-balance text-white"
       >
-      </div> Deer!
-      <p
-        class="z-10 mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-mist-300"
-      >
-        Developer, Close-Up Magician, Science Communicator, Classical Pianist.
-      </p>
-    </h1>
+        Hi, I'm <span
+          class="after:absolute after:inset-0 after:top-[-1lh] after:-z-10 after:h-full after:w-60 after:rotate-12 after:content-around after:place-self-center after:rounded-full after:bg-emerald-700 after:blur-2xl"
+          ><SlotMachine slots={months}>August</SlotMachine></span
+        > Deer!
+        <p
+          class="z-10 mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-mist-300"
+        >
+          Developer, Close-Up Magician, Science Communicator, Classical Pianist.
+        </p>
+      </h1>
+    </div>
   </div>
 
   <div class="relative bg-emerald-950">
-    <div
-      class="absolute inset-0 bg-radial from-transparent from-90% to-emerald-800 bg-size-[10px_10px] bg-fixed"
-    >
-    </div>
     <div class="relative mx-auto max-w-5xl">
-      <Hobby name="Developer">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, rem
-        provident quas explicabo vel animi officia atque eveniet sed, enim
-        itaque aspernatur cupiditate nulla molestias, ducimus culpa fugit ea.
-        Unde!
+      <Hobby name="Computer Science">
+        Frontend, backend, Python, Rust, even a tiny bit of Haskell. I'm a jack
+        of all trades. I'm capable with AI coding tools, but skilled enough to
+        not need them. (This website was <a
+          class="underline decoration-emerald-400"
+          href="https://github.com/AugustDeer/augustdeer.github.io"
+          >coded entirely by hand</a
+        >!)
       </Hobby>
-      <Hobby name="Close‑Up Magician">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, rem
-        provident quas explicabo vel animi officia atque eveniet sed, enim
-        itaque aspernatur cupiditate nulla molestias, ducimus culpa fugit ea.
-        Unde!
+      <Hobby name="Close‑Up Magic">
+        Like every kid, I got one of those magic kits that you play with for 2
+        seconds and then put into a closet somewhere, except I kept playing. Now
+        I perform at the Magic Castle in Hollywood, and occasionally even on
+        live television. (Did you know I was an extra on <a
+          href="https://www.youtube.com/watch?v=vZYMbSHRoas"
+          class="underline decoration-emerald-400">America's Got Talent</a
+        >?)
       </Hobby>
-      <Hobby name="Science Communicator">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, rem
-        provident quas explicabo vel animi officia atque eveniet sed, enim
-        itaque aspernatur cupiditate nulla molestias, ducimus culpa fugit ea.
-        Unde!
+      <Hobby name="Science Communication">
+        The only thing I love more than learning about complex science is
+        explaining it to other people. Check out my award winning video <a
+          class="underline decoration-emerald-400"
+          href="https://www.youtube.com/watch?v=ZVo_RrL-tRI"
+          >on the one-electron universe hypothesis</a
+        >.
       </Hobby>
-      <Hobby name="Classical Pianist">
+      <Hobby name="Classical Piano">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, rem
         provident quas explicabo vel animi officia atque eveniet sed, enim
         itaque aspernatur cupiditate nulla molestias, ducimus culpa fugit ea.
@@ -71,10 +80,12 @@ const months = [
     </div>
   </div>
 
-  <h3>Contact Me:</h3>
-  <ul>
-    <li>
-      Email: <a href="mailto:august@augustdeer.com">august@augustdeer.com</a>
-    </li>
-  </ul>
+  <div>
+    <h3>Contact Me:</h3>
+    <ul>
+      <li>
+        Email: <a href="mailto:august@augustdeer.com">august@augustdeer.com</a>
+      </li>
+    </ul>
+  </div>
 </Layout>
