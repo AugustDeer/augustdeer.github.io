@@ -1,11 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
+import Slots from "../components/Slots.astro";
 import Hobby from "../components/Hobby.astro";
+
+const months = [
+  "September",
+  "October",
+  "November",
+  "December",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+];
 ---
 
 <Layout>
-  <Hero />
+  <div
+    class="relative grid min-h-screen grid-cols-1 place-items-center content-center-safe"
+  >
+    <h1
+      class="relative z-10 text-center text-4xl/normal font-bold tracking-wide text-balance text-white"
+    >
+      Hi, I'm <Slots slots={months}>August</Slots>
+      <div
+        class="absolute inset-0 top-[-1lh] -z-10 h-full w-60 rotate-12 content-around place-self-center rounded-full bg-emerald-700 blur-2xl select-none"
+      >
+      </div> Deer!
+      <p
+        class="z-10 mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-mist-300"
+      >
+        Developer, Close-Up Magician, Science Communicator, Classical Pianist.
+      </p>
+    </h1>
+  </div>
 
   <div class="relative bg-emerald-950">
     <div
