@@ -19,73 +19,84 @@ const months = [
 ---
 
 <Layout>
-  <div class="relative min-h-screen place-items-center overflow-hidden">
+  <div
+    class="relative min-h-screen place-items-center overflow-hidden bg-mist-800"
+  >
     <div
       class="absolute inset-0 bg-radial from-transparent from-90% to-emerald-500 bg-size-[16px_16px] bg-fixed"
     >
     </div>
-    <div
-      class="fixed grid min-h-screen grid-cols-1 place-items-center"
-    >
+    <div class="fixed h-screen content-center">
       <h1
         class="relative z-10 text-center text-4xl/normal font-bold tracking-wide text-balance text-white"
       >
-        Hi, I'm <span
-          class="after:absolute after:inset-0 after:top-[-1lh] after:-z-10 after:h-full after:w-60 after:rotate-12 after:content-around after:place-self-center after:rounded-full after:bg-emerald-700 after:blur-2xl"
-          ><SlotMachine slots={months}>August</SlotMachine></span
-        > Deer!
-        <p
-          class="z-10 mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-mist-300"
-        >
-          Developer, Close-Up Magician, Science Communicator, Classical Pianist.
-        </p>
+        Hi, I'm <SlotMachine slots={months}>August</SlotMachine><span
+          class="absolute inset-0 -top-1/2 -z-10 h-2/1 w-50 origin-center -rotate-12 content-around place-self-center rounded-full bg-emerald-700 blur-2xl select-none"
+        ></span> Deer!
       </h1>
+      <p
+        class="relative z-10 mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-mist-300"
+      >
+        Developer, Science Communicator, Close-Up Magician.
+      </p>
     </div>
   </div>
 
   <div class="relative bg-emerald-950">
-    <div class="relative mx-auto max-w-5xl">
-      <Hobby name="Computer Science">
-        Frontend, backend, Python, Rust, even a tiny bit of Haskell. I'm a jack
-        of all trades. I'm capable with AI coding tools, but skilled enough to
-        not need them. (This website was <a
-          class="underline decoration-emerald-400"
-          href="https://github.com/AugustDeer/augustdeer.github.io"
-          >coded entirely by hand</a
-        >!)
-      </Hobby>
-      <Hobby name="Close‑Up Magic">
-        Like every kid, I got one of those magic kits that you play with for 2
-        seconds and then put into a closet somewhere, except I kept playing. Now
-        I perform at the Magic Castle in Hollywood, and occasionally even on
-        live television. (Did you know I was an extra on <a
-          href="https://www.youtube.com/watch?v=vZYMbSHRoas"
-          class="underline decoration-emerald-400">America's Got Talent</a
-        >?)
-      </Hobby>
-      <Hobby name="Science Communication">
-        The only thing I love more than learning about complex science is
-        explaining it to other people. Check out my award winning video <a
-          class="underline decoration-emerald-400"
-          href="https://www.youtube.com/watch?v=ZVo_RrL-tRI"
-          >on the one-electron universe hypothesis</a
-        >.
-      </Hobby>
-      <Hobby name="Classical Piano">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, rem
-        provident quas explicabo vel animi officia atque eveniet sed, enim
-        itaque aspernatur cupiditate nulla molestias, ducimus culpa fugit ea.
-        Unde!
-      </Hobby>
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-y-32 py-32 px-8">
+      <div class="flex flex-row">
+        <div class="grow"></div>
+        <div class="md:max-w-2xl">
+          <Hobby name="Computer Science">
+            Frontend, backend, Python, Rust, even a tiny bit of Haskell. I'm a
+            jack of all trades. I'm capable with AI coding tools, but skilled
+            enough to not need them. (This website was <a
+              class="underline decoration-emerald-400"
+              href="https://github.com/AugustDeer/augustdeer.github.io"
+              >coded entirely by hand</a
+            >!)
+          </Hobby>
+        </div>
+      </div>
+      <div class="flex flex-row">
+        <div class="md:max-w-2xl">
+          <Hobby name="Science Communication">
+            The only thing I love more than learning about complex science is
+            explaining it to other people. Check out my award winning <a
+              class="underline decoration-emerald-400"
+              href="https://www.youtube.com/watch?v=ZVo_RrL-tRI"
+              >video on the one-electron universe hypothesis</a
+            >.
+          </Hobby>
+        </div>
+        <div class="grow"></div>
+      </div>
+      <div class="flex flex-row">
+        <div class="grow"></div>
+        <div class="md:max-w-2xl">
+          <Hobby name="Close‑Up Magic">
+            Like every kid, I got one of those magic kits that you play with for
+            2 seconds and then put into a closet somewhere, except I kept
+            playing. Now I perform at the Magic Castle in Hollywood, and
+            occasionally even on live television. (Did you know I was an extra
+            on <a
+              href="https://www.youtube.com/watch?v=vZYMbSHRoas"
+              class="underline decoration-emerald-400">America's Got Talent</a
+            >?)
+          </Hobby>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div>
-    <h3>Contact Me:</h3>
-    <ul>
-      <li>
-        Email: <a href="mailto:august@augustdeer.com">august@augustdeer.com</a>
-      </li>
-    </ul>
+  <div class="bg-mist-800 text-white">
+    <div class="w-lg mx-auto py-20">
+      <h3 class="font-bold">Contact Me:</h3>
+      <ul class="list-disc list-inside">
+        <li>
+          Email: <a class="underline" href="mailto:august@augustdeer.com">august@augustdeer.com</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </Layout>
