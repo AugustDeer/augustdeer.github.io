@@ -19,19 +19,17 @@ const months = [
 ---
 
 <Layout>
-  <div
-    class="relative min-h-screen place-items-center overflow-hidden bg-mist-800"
-  >
+  <div class="min-h-screen overflow-hidden bg-mist-800">
     <div
-      class="absolute inset-0 bg-radial from-transparent from-90% to-emerald-500 bg-size-[16px_16px] bg-fixed"
+      class="absolute inset-0 bg-radial from-90% to-emerald-500 bg-size-[16px_16px] bg-fixed"
     >
     </div>
-    <div class="h-screen m-auto content-center">
+    <div class="m-auto h-screen content-center">
       <h1
         class="relative z-10 text-center text-4xl/normal font-bold tracking-wide text-white"
       >
         Hi, I'm <SlotMachine slots={months}>August</SlotMachine> Deer!<span
-          class="absolute inset-0 -top-1/2 -z-10 h-2/1 w-50 origin-center -rotate-12 content-around place-self-center rounded-full bg-emerald-700 blur-2xl select-none"
+          class="absolute inset-0 -top-1/2 -z-10 h-[200%] w-50 origin-center -rotate-12 place-self-center rounded-full bg-emerald-700 blur-2xl"
         ></span>
       </h1>
       <p
@@ -42,11 +40,11 @@ const months = [
     </div>
   </div>
 
-  <div class="relative bg-emerald-950">
-    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-y-32 py-32 px-8">
-      <div class="flex flex-row">
+  <div class="bg-emerald-950">
+    <div class="mx-auto max-w-5xl gap-y-32 px-8 py-16">
+      <div class="flex py-16">
         <div class="grow"></div>
-        <div class="md:max-w-2xl">
+        <div class="max-w-2xl">
           <Hobby name="Computer Science">
             Frontend, backend, Python, Rust, even a tiny bit of Haskell. I'm a
             jack of all trades. I'm capable with AI coding tools, but skilled
@@ -58,8 +56,8 @@ const months = [
           </Hobby>
         </div>
       </div>
-      <div class="flex flex-row">
-        <div class="md:max-w-2xl">
+      <div class="flex py-16">
+        <div class="max-w-2xl">
           <Hobby name="Science Communication">
             The only thing I love more than learning about complex science is
             explaining it to other people. Check out my award winning <a
@@ -71,9 +69,9 @@ const months = [
         </div>
         <div class="grow"></div>
       </div>
-      <div class="flex flex-row">
+      <div class="flex py-16">
         <div class="grow"></div>
-        <div class="md:max-w-2xl">
+        <div class="max-w-2xl">
           <Hobby name="Close‑Up Magic">
             Like every kid, I got one of those magic kits that you play with for
             2 seconds and then put into a closet somewhere, except I kept
@@ -81,7 +79,8 @@ const months = [
             occasionally even on live television. (Did you know I was an extra
             on <a
               href="https://www.youtube.com/watch?v=vZYMbSHRoas"
-              class="underline decoration-emerald-400">America's Got Talent</a
+              class="underline decoration-emerald-400"
+              >America's Got Talent</a
             >?)
           </Hobby>
         </div>
@@ -90,11 +89,13 @@ const months = [
   </div>
 
   <div class="bg-mist-800 text-white">
-    <div class="w-lg mx-auto py-20">
+    <div class="mx-auto w-lg py-20">
       <h3 class="font-bold">Contact Me:</h3>
-      <ul class="list-disc list-inside">
+      <ul class="list-inside list-disc">
         <li>
-          Email: <a class="underline" href="mailto:august@augustdeer.com">august@augustdeer.com</a>
+          Email: <a class="underline" href="mailto:august@augustdeer.com"
+            >august@augustdeer.com</a
+          >
         </li>
       </ul>
     </div>
