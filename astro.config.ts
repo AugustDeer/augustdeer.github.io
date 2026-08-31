@@ -1,5 +1,4 @@
 import { defineConfig, fontProviders } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://augustdeer.com",
@@ -13,7 +12,4 @@ export default defineConfig({
       styles: ["normal"],
     },
   ],
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });

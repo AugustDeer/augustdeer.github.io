@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SlotMachine from "../components/SlotMachine.astro";
-import Hobby from "../components/Hobby.astro";
 
 const months = [
   "September",
@@ -19,85 +18,205 @@ const months = [
 ---
 
 <Layout>
-  <div class="min-h-screen overflow-hidden bg-mist-800">
-    <div
-      class="absolute inset-0 bg-radial from-90% to-emerald-500 bg-size-[16px_16px] bg-fixed"
-    >
-    </div>
-    <div class="m-auto h-screen content-center">
-      <h1
-        class="relative z-10 text-center text-4xl/normal font-bold tracking-wide text-white"
-      >
-        Hi, I'm <SlotMachine slots={months}>August</SlotMachine> Deer!<span
-          class="absolute inset-0 -top-1/2 -z-10 h-[200%] w-50 origin-center -rotate-12 place-self-center rounded-full bg-emerald-700 blur-2xl"
-        ></span>
+  <div class="hero-wrapper">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>
+        Hi, I'm <SlotMachine slots={months}>August</SlotMachine> Deer!
       </h1>
-      <p
-        class="relative z-10 mt-8 text-center text-xl/8 font-light tracking-tight text-pretty text-mist-300"
-      >
-        Developer, Science Communicator, Close-Up Magician.
-      </p>
+      <h3>Developer, Science Communicator, Close-Up Magician.</h3>
     </div>
   </div>
 
-  <div class="bg-emerald-950">
-    <div class="mx-auto max-w-5xl gap-y-32 px-8 py-16">
-      <div class="flex py-16">
-        <div class="grow"></div>
-        <div class="max-w-2xl">
-          <Hobby name="Computer Science">
+  <div class="hobbies-wrapper">
+    <div class="hobbies">
+      <div class="hobby-wrapper">
+        <div class="hobby">
+          <h2>Computer Science</h2>
+          <p>
             Frontend, backend, Python, Rust, even a tiny bit of Haskell. I'm a
             jack of all trades. I'm capable with AI coding tools, but skilled
             enough to not need them. (This website was <a
-              class="underline decoration-emerald-400 hover:decoration-emerald-200"
               href="https://github.com/AugustDeer/augustdeer.github.io"
               >coded entirely by hand</a
             >!)
-          </Hobby>
+          </p>
         </div>
       </div>
-      <div class="flex py-16">
-        <div class="max-w-2xl">
-          <Hobby name="Science Communication">
+      <div class="hobby-wrapper">
+        <div class="hobby">
+          <h2>Science Communication</h2>
+          <p>
             The only thing I love more than learning about complex science is
             explaining it to other people. Check out my award winning <a
-              class="underline decoration-emerald-400 hover:decoration-emerald-200"
               href="https://www.youtube.com/watch?v=ZVo_RrL-tRI"
-              >video on the one-electron universe hypothesis</a
-            >.
-          </Hobby>
+            >
+              video on the one-electron universe hypothesis
+            </a>.
+          </p>
         </div>
-        <div class="grow"></div>
       </div>
-      <div class="flex py-16">
-        <div class="grow"></div>
-        <div class="max-w-2xl">
-          <Hobby name="Close‑Up Magic">
+      <div class="hobby-wrapper">
+        <div class="hobby">
+          <h2>Close-Up Magic</h2>
+          <p>
             Like every kid, I got one of those magic kits that you play with for
             2 seconds and then put into a closet somewhere, except I kept
             playing. Now I perform at the Magic Castle in Hollywood, and
             occasionally even on live television. (Did you know I was an extra
-            on <a
-              href="https://www.youtube.com/watch?v=vZYMbSHRoas"
-              class="underline decoration-emerald-400 hover:decoration-emerald-200"
+            on <a href="https://www.youtube.com/watch?v=vZYMbSHRoas"
               >America's Got Talent</a
             >?)
-          </Hobby>
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="bg-mist-800 text-white">
-    <div class="mx-auto w-lg py-20">
-      <h3 class="font-bold">Contact Me:</h3>
-      <ul class="list-inside list-disc">
-        <li>
-          Email: <a class="underline" href="mailto:august@augustdeer.com"
-            >august@augustdeer.com</a
-          >
-        </li>
-      </ul>
-    </div>
+  <div class="contacts">
+    <h3>Where to find me:</h3>
+    <ul>
+      <li>
+        YouTube: <a href="www.youtube.com/@augustdeer">@augustdeer</a>
+      </li>
+      <li>
+        Bluesky: <a href="https://bsky.app/profile/augustdeer.com"
+          >@augustdeer.com</a
+        >
+      </li>
+      <li>
+        Email: <a href="mailto:august@augustdeer.com">august@augustdeer.com</a>
+      </li>
+    </ul>
   </div>
 </Layout>
+
+<style is:global>
+  /* Hero Section */
+  .hero-wrapper {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "stack";
+    text-align: center;
+
+    > * {
+      grid-area: stack;
+      align-self: center;
+      position: relative;
+    }
+
+    .hero-bg {
+      width: 100%;
+      height: 100%;
+      background: fixed radial-gradient(transparent 90%, var(--primary-subtle))
+        50% 50% / 1rem 1rem;
+    }
+
+    h1 {
+      position: relative;
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.025em;
+
+      &::after {
+        content: "";
+        z-index: -10;
+        position: absolute;
+        inset: 0px;
+        top: -50%;
+        width: 5em;
+        height: 200%;
+        background-color: var(--primary-dark);
+        place-self: center;
+        rotate: -12deg;
+        transform-origin: center;
+        border-radius: 100%;
+        filter: blur(40px);
+      }
+    }
+
+    h3 {
+      margin-top: 2rem;
+      font-size: 1.25rem;
+      line-height: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      text-wrap: pretty;
+      color: var(--secondary-color);
+    }
+  }
+
+  /* Hobby Section */
+  .hobbies-wrapper {
+    background-color: var(--primary-bg);
+
+    .hobbies {
+      margin-inline: auto;
+      max-width: 64rem;
+      padding-inline: 2rem;
+      padding-block: 4rem;
+
+      .hobby-wrapper {
+        display: flex;
+        padding-block: 4rem;
+
+        &:nth-child(odd) {
+          place-content: end;
+        }
+      }
+
+      .hobby {
+        max-width: 42rem;
+        align-items: center;
+        border-radius: 2rem;
+        background-color: var(--body-bg);
+        padding: 1.25rem;
+        outline: 2px solid var(--primary-subtle);
+        transition: all 150ms;
+
+        &:hover {
+          translate: 0 -0.25rem;
+          box-shadow: var(--drop-shadow-xl);
+        }
+      }
+
+      h2 {
+        flex-basis: 25%;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      p {
+        flex-basis: 75%;
+      }
+
+      @media (width >= 40rem) {
+        .hobby {
+          display: flex;
+          gap: 1.25rem;
+        }
+
+        h2 {
+          text-align: right;
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+
+  .contacts {
+    margin-inline: auto;
+    max-width: 32rem;
+    padding: 5rem 1rem;
+
+    h3 {
+      font-size: 1.125rem;
+    }
+  }
+</style>

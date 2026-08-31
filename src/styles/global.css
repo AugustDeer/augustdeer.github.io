@@ -1,5 +1,44 @@
-@import "tailwindcss";
+@import "modern-normalize/modern-normalize.css";
 
-@theme inline {
-  --font-sans: var(--font-inter);
+[hidden] {
+  display: none !important;
+}
+
+:root {
+  --body-color: white;
+  --secondary-color: oklch(87.2% 0.007 219.6);
+  --body-bg: oklch(27.5% 0.011 216.9);
+
+  --primary-light: oklch(90.5% 0.093 164.15);
+  --primary: oklch(76.5% 0.177 163.223);
+  --primary-subtle: oklch(69.6% 0.17 162.48);
+  --primary-dark: oklch(50.8% 0.118 165.612);
+  --primary-bg: oklch(26.2% 0.051 172.552);
+
+  --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 0.1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline var(--primary);
+
+  &:hover {
+    text-decoration-color: var(--primary-light);
+  }
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--body-bg);
+  color: white;
 }
