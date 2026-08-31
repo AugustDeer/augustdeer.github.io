@@ -1,4 +1,4 @@
-@import "modern-normalize/modern-normalize.css";
+@import url("modern-normalize/modern-normalize.css");
 
 [hidden] {
   display: none !important;
@@ -6,16 +6,14 @@
 
 :root {
   --body-color: white;
-  --secondary-color: oklch(87.2% 0.007 219.6);
-  --body-bg: oklch(27.5% 0.011 216.9);
-
-  --primary-light: oklch(90.5% 0.093 164.15);
-  --primary: oklch(76.5% 0.177 163.223);
-  --primary-subtle: oklch(69.6% 0.17 162.48);
-  --primary-dark: oklch(50.8% 0.118 165.612);
-  --primary-bg: oklch(26.2% 0.051 172.552);
-
-  --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 0.1);
+  --secondary-color: oklch(87.2% 0.007 219.6deg);
+  --body-bg: oklch(27.5% 0.011 216.9deg);
+  --primary-light: oklch(90.5% 0.093 164.15deg);
+  --primary: oklch(76.5% 0.177 163.223deg);
+  --primary-subtle: oklch(69.6% 0.17 162.48deg);
+  --primary-dark: oklch(50.8% 0.118 165.612deg);
+  --primary-bg: oklch(26.2% 0.051 172.552deg);
+  --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 10%);
 }
 
 h1,
@@ -26,15 +24,6 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
-}
-
-a {
-  color: inherit;
-  text-decoration: underline var(--primary);
-
-  &:hover {
-    text-decoration-color: var(--primary-light);
-  }
 }
 
 body {

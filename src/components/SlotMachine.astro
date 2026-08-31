@@ -4,72 +4,34 @@ interface Props {
 }
 
 const { slots = [] } = Astro.props;
-
-const slotCount = slots.length;
 ---
 
 <slot-machine>
-  {
-    slots.map((slot) => (
-      <span hidden aria-hidden>
-        {slot}
-      </span>
-    ))
-  }
-  <span><slot /></span>
+  <span class="slot-machine-inner">
+    {
+      slots.map((slot) => (
+        <span class="slot-machine-slot" hidden aria-hidden>
+          {slot}
+        </span>
+      ))
+    }
+    <span class="slot-machine-slot"><slot /></span>
+  </span>
 </slot-machine>
-
-<style>
-  slot-machine {
-    box-sizing: content-box;
-    height: 1lh;
-    flex-direction: column;
-    place-items: center;
-    align-content: center;
-    overflow: hidden;
-
-    &.animating {
-      display: inline-flex;
-      margin-inline: -2.5rem;
-      padding-inline: 2.5rem;
-    }
-
-    span {
-      animation: 1.5s slot-machine;
-      justify-content: center;
-
-      &:not(:last-child) {
-        font-weight: 200;
-        user-select: none;
-        width: 0;
-        display: inline-flex;
-      }
-    }
-  }
-</style>
-
-<style define:vars={{ slotCount }}>
-  @keyframes slot-machine {
-    0% {
-      transform: translateY(1lh);
-    }
-    100% {
-      transform: translateY(calc(var(--slotCount) * -1lh));
-    }
-  }
-</style>
 
 <script>
   class SlotMachine extends HTMLElement {
     connectedCallback() {
       const ANIMATING_CLASS = "animating";
 
-      this.classList.add(ANIMATING_CLASS);
-
-      const slots = Array.from(this.children);
-
+      const inner = this.children.item(0);
+      if (inner === null) {
+        return;
+      }
+      const slots = Array.from(inner.children);
       const rest = slots.slice(0, -1);
 
+      this.classList.add(ANIMATING_CLASS);
       for (const slot of rest) {
         slot.removeAttribute("hidden");
       }
