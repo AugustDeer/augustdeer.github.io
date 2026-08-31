@@ -13,12 +13,12 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.24.0",
+      "version": "^11.25.0",
       "onFail": "download"
     }
   },
   "dependencies": {
-    "astro": "^7.2.7",
+    "astro": "^7.2.9",
     "modern-normalize": "^3.0.1"
   },
   "devDependencies": {
