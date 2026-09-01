@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This is a simple [Astro](astro.build) website I am developing to refresh my webdev skills.
+This is a simple vanilla js website I am developing to refresh my webdev skills.
 
 ## Getting started
 

@@ -1,31 +1,30 @@
 {
   "name": "webdev-test",
+  "version": "0.0.0",
+  "private": true,
   "author": "August Deer <august@augustdeer.com> (https://augustdeer.com)",
   "type": "module",
-  "version": "0.0.1",
-  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "check": "astro check",
-    "build": "astro build",
-    "preview": "astro preview"
+    "dev": "vite",
+    "ci": "biome ci",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.11",
+    "typescript": "~7.0.2",
+    "vite": "^8.2.2"
   },
   "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.20.0",
+      "onFail": "download"
+    },
     "packageManager": {
       "name": "pnpm",
       "version": "^11.25.0",
       "onFail": "download"
     }
-  },
-  "dependencies": {
-    "astro": "^7.2.9",
-    "modern-normalize": "^3.0.1"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "prettier": "^3.9.6",
-    "prettier-plugin-astro": "^0.14.1",
-    "stylelint": "^17.14.1",
-    "stylelint-config-standard": "^40.0.0"
   }
 }
