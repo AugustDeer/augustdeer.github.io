@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>August Deer</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <link rel="stylesheet" href="/src/index.css" />
-
-    <script type="module" defer src="/src/slot-machine.ts"></script>
+    <link rel="stylesheet" href="/src/index.css">
+    <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
     <div class="hero-wrapper">
@@ -16,10 +15,7 @@
       <div class="hero-content">
         <h1>
           Hi, I'm
-          <slot-machine
-            data-slots="September,October,November,December,January,February,March,April,May,June,July"
-            >August</slot-machine
-          >
+          <span id="slot-machine">August</span>
           Deer!
         </h1>
         <h3>Developer, Science Communicator, Close-Up Magician.</h3>
@@ -32,10 +28,11 @@
           <div class="hobby">
             <h2>Computer Science</h2>
             <p>
-              Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a jack of all trades.
-              I'm capable with AI coding tools, but skilled enough to not need them. (This website
-              was
-              <a href="https://github.com/AugustDeer/augustdeer.github.io">coded entirely by hand</a
+              Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a
+              jack of all trades. I'm capable with AI coding tools, but skilled
+              enough to not need them. (This website was
+              <a href="https://github.com/AugustDeer/augustdeer.github.io"
+                >coded entirely by hand</a
               >!)
             </p>
           </div>
@@ -44,10 +41,11 @@
           <div class="hobby">
             <h2>Science Communication</h2>
             <p>
-              The only thing I love more than learning about complex science is explaining it to
-              other people. Check out my award winning
+              The only thing I love more than learning about complex science is
+              explaining it to other people. Check out my award winning
               <a href="https://www.youtube.com/watch?v=ZVo_RrL-tRI">
-                video on the one-electron universe hypothesis </a
+                video on the one-electron universe hypothesis
+              </a
               >.
             </p>
           </div>
@@ -56,11 +54,14 @@
           <div class="hobby">
             <h2>Close-Up Magic</h2>
             <p>
-              Like every kid, I got one of those magic kits that you play with for 2 seconds and
-              then put into a closet somewhere, except I kept playing. Now I perform at the Magic
-              Castle in Hollywood, and occasionally even on live television. (Did you know I was an
-              extra on
-              <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a>?)
+              Like every kid, I got one of those magic kits that you play with
+              for 2 seconds and then put into a closet somewhere, except I kept
+              playing. Now I perform at the Magic Castle in Hollywood, and
+              occasionally even on live television. (Did you know I was an extra
+              on
+              <a href="https://www.youtube.com/watch?v=vZYMbSHRoas"
+                >America's Got Talent</a
+              >?)
             </p>
           </div>
         </div>

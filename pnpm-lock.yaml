@@ -210,6 +210,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.11
         version: 2.5.11
+      '@fontsource-variable/inter':
+        specifier: ^5.3.0
+        version: 5.3.0
       node:
         specifier: runtime:^24.20.0
         version: runtime:24.20.0
@@ -278,6 +281,9 @@ packages:
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/inter@5.3.0':
+    resolution: {integrity: sha512-OupL48va4JNofb97w6NYeF9S7W/kHNKM0Er8Dem5nqi4jeOLrVJDoE8tZEpnMJmtkvNbB1EIPPwHcdkF6b1oUA==}
 
   '@oxc-project/types@0.147.0':
     resolution: {integrity: sha512-IJ3s6ltHLp45S0bh7phkX+gJO7A1Wuz2EaqpAhb8WjqDwbzMiWKHhyyT42tskaWjEYXtHtVCPpnBJVT9+dcRLg==}
@@ -838,6 +844,8 @@ snapshots:
 
   '@biomejs/cli-win32-x64@2.5.11':
     optional: true
+
+  '@fontsource-variable/inter@5.3.0': {}
 
   '@oxc-project/types@0.147.0': {}
 
