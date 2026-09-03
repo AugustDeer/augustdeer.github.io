@@ -11,34 +11,33 @@ const MONTHS = [
   "May",
   "June",
   "July",
-  "August",
 ];
 
 const fragment = new DocumentFragment();
-const childNode = document.createElement("span");
-childNode.className = "slot-machine-inner";
-fragment.append(childNode);
 
 MONTHS.forEach((m) => {
   const span = document.createElement("span");
   span.className = "slot-machine-slot";
   span.innerHTML = m;
-  childNode.append(span);
+  span.ariaHidden = "true";
+  fragment.append(span);
 });
 
 if (!window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) {
-  const slotMachine = document.getElementById("slot-machine");
+  document.addEventListener("DOMContentLoaded", () => {
+    const slotMachine = document.getElementById("slot-machine");
 
-  if (slotMachine) {
-    slotMachine.replaceChildren(fragment);
+    if (slotMachine) {
+      slotMachine.prepend(fragment);
 
-    // Start animation
-    slotMachine.classList.add(ANIMATING_CLASS);
+      // Start animation
+      slotMachine.classList.add(ANIMATING_CLASS);
 
-    // Cleanup on animation end
-    slotMachine.addEventListener("animationend", () => {
-      slotMachine.classList.remove(ANIMATING_CLASS);
-      slotMachine.innerHTML = "August";
-    });
-  }
+      // Cleanup on animation end
+      slotMachine.addEventListener("animationend", () => {
+        slotMachine.classList.remove(ANIMATING_CLASS);
+        slotMachine.textContent = "August";
+      });
+    }
+  });
 }

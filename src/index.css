@@ -100,35 +100,29 @@ a {
   }
 }
 
-#slot-machine {
-  box-sizing: content-box;
+.hero-title {
   height: 1lh;
   overflow: hidden;
+  display: block;
+  justify-content: center;
+}
 
-  &.animating {
-    display: inline-flex;
-    margin-inline: -2rem;
-    padding-inline: 2rem;
+#slot-machine.animating {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .slot-machine-inner {
-      display: inline-flex;
-      height: max-content;
-      animation: 1.5s both slot-machine;
-      flex-direction: column;
-      align-items: center;
-    }
+#slot-machine.animating {
+  animation: 1.5s ease both slot-machine;
+}
 
-    .slot-machine-slot {
-      justify-content: center;
-
-      &:not(:last-child) {
-        font-weight: 200;
-        user-select: none;
-        width: 0;
-        display: inline-flex;
-      }
-    }
-  }
+.slot-machine-slot {
+  justify-content: center;
+  font-weight: 200;
+  user-select: none;
+  display: inline-flex;
+  width: 0;
 }
 
 @keyframes slot-machine {
