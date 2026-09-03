@@ -14,7 +14,6 @@
       crossorigin
     >
     <link rel="stylesheet" href="/src/index.css">
-    <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
     <div class="hero-wrapper">
@@ -22,7 +21,22 @@
       <div class="hero-content">
         <h1>
           <span class="hero-title">
-            Hi, I'm <span id="slot-machine">August</span> Deer!
+            Hi, I'm
+            <span id="slot-machine" onanimationend="this.outerHTML='August'">
+              <span aria-hidden>September</span>
+              <span aria-hidden>October</span>
+              <span aria-hidden>November</span>
+              <span aria-hidden>December</span>
+              <span aria-hidden>January</span>
+              <span aria-hidden>February</span>
+              <span aria-hidden>March</span>
+              <span aria-hidden>April</span>
+              <span aria-hidden>May</span>
+              <span aria-hidden>June</span>
+              <span aria-hidden>July</span>
+              August
+            </span>
+            Deer!
           </span>
         </h1>
         <h3>Developer, Science Communicator, Close-Up Magician.</h3>

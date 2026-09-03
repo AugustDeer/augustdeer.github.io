@@ -107,22 +107,19 @@ a {
   justify-content: center;
 }
 
-#slot-machine.animating {
+#slot-machine {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-}
-
-#slot-machine.animating {
   animation: 1.5s ease both slot-machine;
-}
 
-.slot-machine-slot {
-  justify-content: center;
-  font-weight: 200;
-  user-select: none;
-  display: inline-flex;
-  width: 0;
+  span {
+    justify-content: center;
+    font-weight: 200;
+    user-select: none;
+    display: inline-flex;
+    width: 0;
+  }
 }
 
 @keyframes slot-machine {
