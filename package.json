@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "ci": "biome ci",
-    "build": "tsc && vite build",
+    "ci": "tsc && biome ci",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
