@@ -50,8 +50,7 @@
         "Canada",
       ];
 
-      Alpine.data("SlotMachine", () => ({
-        animating: false,
+      Alpine.data("SlotMachineGlobal", () => ({
         months: MONTHS,
         countries: COUNTRIES,
       }));
@@ -62,11 +61,11 @@
     <div class="hero-wrapper">
       <div class="hero-bg"></div>
       <div class="hero-content">
-        <h1>
+        <h1 x-data="SlotMachineGlobal">
           <span
             x-show="!joke"
             class="hero-title"
-            x-data="SlotMachine"
+            x-data="{animating: false}"
             x-init="animating=true"
             x-intersect="animating=true"
             x-intersect:leave.dwell="animating=false"
@@ -86,27 +85,28 @@
             <span x-cloak x-show="!animating">August</span>
             Deer!
           </span>
-          <span
-            x-show="joke"
-            x-cloak
-            class="hero-title"
-            x-data="SlotMachine"
-            x-intersect="animating=true"
-            x-intersect:leave.dwell="animating=false"
-          >
+          <span x-show="joke" x-cloak>
             Hi, I was on
             <span
-              x-show="animating"
-              class="slot-machine"
-              :class="animating || 'paused'"
-              @animationEnd="animating=false"
+              class="hero-title"
+              x-data="{animating: false}"
+              x-intersect="animating=true"
+              x-intersect:leave.dwell="animating=false"
             >
-              <template x-for="c in countries">
-                <span aria-hidden x-text="c+'\'s'"></span>
-              </template>
-              America's
+              <span
+                x-show="animating"
+                class="slot-machine"
+                :class="animating || 'paused'"
+                @animationEnd="animating=false"
+              >
+                <template x-for="c in countries">
+                  <span aria-hidden x-text="c+'\'s'"></span>
+                </template>
+                America's
+              </span>
+              <span x-cloak x-show="!animating">America's</span>
             </span>
-            <span x-cloak x-show="!animating">America's</span> Got Talent!
+            Got Talent!
           </span>
         </h1>
         <h3>
