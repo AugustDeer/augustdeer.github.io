@@ -14,32 +14,105 @@
       crossorigin
     />
     <link rel="stylesheet" href="/src/index.css" />
+    <script type="module">
+      import Alpine from "alpinejs";
+      import intersect from "@alpinejs/intersect";
+
+      Alpine.plugin(intersect);
+
+      window.Alpine = Alpine;
+
+      const MONTHS = [
+        "September",
+        "October",
+        "November",
+        "December",
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+      ];
+
+      const COUNTRIES = [
+        "Hong\xa0Kong",
+        "Myanmar",
+        "Thailand",
+        "Brazil",
+        "India",
+        "Persia",
+        "Japan",
+        "Spain",
+        "Britain",
+        "Pakistan",
+        "Canada",
+      ];
+
+      Alpine.data("SlotMachine", () => ({
+        animating: false,
+        months: MONTHS,
+        countries: COUNTRIES,
+      }));
+      Alpine.start();
+    </script>
   </head>
-  <body>
+  <body x-data="{ joke: false }">
     <div class="hero-wrapper">
       <div class="hero-bg"></div>
       <div class="hero-content">
         <h1>
-          <span class="hero-title">
+          <span
+            x-show="!joke"
+            class="hero-title"
+            x-data="SlotMachine"
+            x-init="animating=true"
+            x-intersect="animating=true"
+            x-intersect:leave.dwell="animating=false"
+          >
             Hi, I'm
-            <span id="slot-machine" onanimationend="this.outerHTML='August'">
-              <span aria-hidden>September</span>
-              <span aria-hidden>October</span>
-              <span aria-hidden>November</span>
-              <span aria-hidden>December</span>
-              <span aria-hidden>January</span>
-              <span aria-hidden>February</span>
-              <span aria-hidden>March</span>
-              <span aria-hidden>April</span>
-              <span aria-hidden>May</span>
-              <span aria-hidden>June</span>
-              <span aria-hidden>July</span>
+            <span
+              x-show="animating"
+              class="slot-machine"
+              :class="animating || 'paused'"
+              @animationEnd="animating=false"
+            >
+              <template x-for="m in months">
+                <span aria-hidden x-text="m"></span>
+              </template>
               August
             </span>
+            <span x-cloak x-show="!animating">August</span>
             Deer!
           </span>
+          <span
+            x-show="joke"
+            x-cloak
+            class="hero-title"
+            x-data="SlotMachine"
+            x-intersect="animating=true"
+            x-intersect:leave.dwell="animating=false"
+          >
+            Hi, I was on
+            <span
+              x-show="animating"
+              class="slot-machine"
+              :class="animating || 'paused'"
+              @animationEnd="animating=false"
+            >
+              <template x-for="c in countries">
+                <span aria-hidden x-text="c+'\'s'"></span>
+              </template>
+              America's
+            </span>
+            <span x-cloak x-show="!animating">America's</span> Got Talent!
+          </span>
         </h1>
-        <h3>Developer, Science Communicator, Close-Up Magician.</h3>
+        <h3>
+          <span x-show="!joke">Developer, Science Communicator, Close-Up Magician.</span>
+          <span x-cloak x-show="joke">Did you know I was an extra on America's Got Talent?</span>
+        </h3>
       </div>
     </div>
 
@@ -47,36 +120,68 @@
       <div class="hobbies">
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2>Computer Science</h2>
+            <h2>
+              <span x-show="!joke">Computer Science</span>
+              <span x-cloak x-show="joke">America's Got Talent</span>
+            </h2>
             <p>
-              Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a jack of all trades.
-              I'm capable with AI coding tools, but skilled enough to not need them. (This website
-              was
-              <a href="https://github.com/AugustDeer/augustdeer.github.io">coded entirely by hand</a
-              >!)
+              <span x-show="!joke">
+                Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a jack of all
+                trades. I'm capable with AI coding tools, but skilled enough to not need them. (This
+                website was
+                <a href="https://github.com/AugustDeer/augustdeer.github.io"
+                  >coded entirely by hand</a
+                >!)
+              </span>
+              <span x-cloak x-show="joke">
+                Did you know I was an extra on America's Got Talent? Did you know I was an extra on
+                America's Got Talent? Did you know I was an extra on America's Got Talent? Did you
+                know I was an extra on America's Got Talent?
+              </span>
             </p>
           </div>
         </div>
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2>Science Communication</h2>
+            <h2>
+              <span x-show="!joke">Science Communication</span
+              ><span x-cloak x-show="joke">America's Got Talent</span>
+            </h2>
             <p>
-              The only thing I love more than learning about complex science is explaining it to
-              other people. Check out my award winning
-              <a href="https://www.youtube.com/watch?v=ZVo_RrL-tRI">
-                video on the one-electron universe hypothesis </a
-              >.
+              <span x-show="!joke">
+                The only thing I love more than learning about complex science is explaining it to
+                other people. Check out my award winning
+                <a href="https://www.youtube.com/watch?v=ZVo_RrL-tRI">
+                  video on the one-electron universe hypothesis </a
+                >.
+              </span>
+              <span x-cloak x-show="joke">
+                Did you know I was an extra on America's Got Talent? Did you know I was an extra on
+                America's Got Talent? I was an extra on America's Got Talent! Did you know that? Did
+                you know I was an extra on America's Got Talent?
+              </span>
             </p>
           </div>
         </div>
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2>Close-Up Magic</h2>
+            <h2>
+              <span x-show="!joke">Close-Up Magic</span
+              ><span x-cloak x-show="joke">America's Got Talent</span>
+            </h2>
             <p>
-              Like every kid, I got one of those magic kits that you play with for 2 seconds and
-              then put into a closet somewhere, except I kept playing. Now I perform at the Magic
-              Castle in Hollywood, and occasionally even on live television. (Did you know I was an
-              extra on
+              <span x-show="!joke">
+                Like every kid, I got one of those magic kits that you play with for 2 seconds and
+                then put into a closet somewhere, except I kept playing. Now I perform at the Magic
+                Castle in Hollywood, and occasionally even on live television.
+              </span>
+              <span x-cloak x-show="joke"
+                >Did you know I was an extra on America's Got Talent? Did you know I was an extra on
+                America's Got Talent? Did you know I was an extra on America's Got Talent? I was an
+                extra on America's Got Talent! Did you know that?</span
+              >
+              (Did you know I was an
+              <span @click="joke=!joke" style="cursor: pointer">extra</span> on
               <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a>?)
             </p>
           </div>

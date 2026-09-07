@@ -32,5 +32,9 @@
       "version": "^24.20.0",
       "onFail": "download"
     }
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.17.1",
+    "alpinejs": "^3.17.1"
   }
 }
