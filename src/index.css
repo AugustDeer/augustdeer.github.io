@@ -50,6 +50,20 @@ a {
   }
 }
 
+/* Make chrome scrollbar less ugly. */
+::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 /* Hero Section */
 .hero-wrapper {
   min-height: 100vh;

@@ -1,5 +1,10 @@
+import autoprefixer from "autoprefixer";
 import type { UserConfig } from "vite";
 
 export default {
-  resolve: { preserveSymlinks: true },
+  css: {
+    postcss: {
+      plugins: [autoprefixer({})],
+    },
+  },
 } satisfies UserConfig;
