@@ -14,48 +14,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="/src/index.css" />
-    <script type="module">
-      import Alpine from "alpinejs";
-      import intersect from "@alpinejs/intersect";
-
-      Alpine.plugin(intersect);
-
-      window.Alpine = Alpine;
-
-      const MONTHS = [
-        "September",
-        "October",
-        "November",
-        "December",
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-      ];
-
-      const COUNTRIES = [
-        "Hong\xa0Kong",
-        "Myanmar",
-        "Thailand",
-        "Brazil",
-        "India",
-        "Persia",
-        "Japan",
-        "Spain",
-        "Britain",
-        "Pakistan",
-        "Canada",
-      ];
-
-      Alpine.data("SlotMachineGlobal", () => ({
-        months: MONTHS,
-        countries: COUNTRIES,
-      }));
-      Alpine.start();
-    </script>
+    <script type="module" src="src/index.ts"></script>
   </head>
   <body x-data="{ joke: false }">
     <div class="hero-wrapper">

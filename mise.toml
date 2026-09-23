@@ -1,22 +1,18 @@
 [tools]
-node = "24"
+node = "lts"
 pnpm = "latest"
+
+[deps.pnpm]
+auto = true
 
 [env]
 _.path = ["{{config_root}}/node_modules/.bin"]
 
-[tasks.install]
-run = "pnpm install"
-sources = ["package.json", "pnpm-lock.yaml", "mise.toml"]
-outputs = ["node_modules/.pnpm/lock.yaml"]
-
 [tasks.dev]
 run = "pnpm dev"
-depends = ["install"]
 
 [tasks.build]
 run = "pnpm build"
-depends = ["check"]
 sources = ["index.html", "src/**/*", "package.json"]
 outputs = ["dist/**/*"]
 
