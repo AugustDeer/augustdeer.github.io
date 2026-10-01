@@ -185,8 +185,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@types/alpinejs':
-        specifier: ^3.13.11
-        version: 3.13.11
+        specifier: ^3.17.0
+        version: 3.17.0
       '@types/alpinejs__intersect':
         specifier: ^3.13.4
         version: 3.13.4
@@ -873,8 +873,8 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@types/alpinejs@3.13.11':
-    resolution: {integrity: sha512-3KhGkDixCPiLdL3Z/ok1GxHwLxEWqQOKJccgaQL01wc0EVM2tCTaqlC3NIedmxAXkVzt/V6VTM8qPgnOHKJ1MA==}
+  '@types/alpinejs@3.17.0':
+    resolution: {integrity: sha512-sVgCM7bI/tUiHZVpDTsx/UBhcck3WSed21CeraITFDL16nGJI/wCVEGCYu7QWtI9+/D2Ripx9wGXoSzQSDog6A==}
 
   '@types/alpinejs__intersect@3.13.4':
     resolution: {integrity: sha512-yoX6WO7AleeULOQvPz7rrx7FJmu6l033bM7QiGcWyvZjqF2KIut99ByUZO6OWUQuYmbRjxsKthGiUYNaAywHiA==}
@@ -2397,11 +2397,11 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.2
 
-  '@types/alpinejs@3.13.11': {}
+  '@types/alpinejs@3.17.0': {}
 
   '@types/alpinejs__intersect@3.13.4':
     dependencies:
-      '@types/alpinejs': 3.13.11
+      '@types/alpinejs': 3.17.0
 
   '@types/aria-query@5.0.4': {}
 
