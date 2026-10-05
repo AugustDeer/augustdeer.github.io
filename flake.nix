@@ -5,15 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = {self, nixpkgs, ...}: let
+  outputs = {nixpkgs, ...}: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
     pnpm = pkgs.pnpm_12;
   in {
-    devShells.${system}.default = pkgs.mkShellNoCC {
-      inputsFrom = [self.packages.default];
-    };
-
     packages.${system}.default = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
       pname = "webdev-test";
       version = "0.0.0";
@@ -37,9 +33,9 @@
       installPhase = ''
         runHook preInstall
 
-	cp -r ./dist/ $out/
+        cp -r ./dist/ $out/
 
-	runHook postInstall
+        runHook postInstall
       '';
     });
 
