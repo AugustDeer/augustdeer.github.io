@@ -4,14 +4,15 @@ This is a simple vanilla js website I am developing to refresh my webdev skills.
 
 ## Getting started
 
-This project is organized with [mise](mise.jdx.com). To get started, run
+This project is organized with [nix](nixos.org). To get started, run
 
 ```sh
-mise dev
+nix develop
+pnpm dev
 ```
 
 to install all dependencies and start a development server. To build a static site, simply run
 
 ```sh
-mise build
+nix build
 ```
