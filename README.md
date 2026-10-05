@@ -4,7 +4,7 @@ This is a simple vanilla js website I am developing to refresh my webdev skills.
 
 ## Getting started
 
-This project is organized with [nix](nixos.org). To get started, run
+This project is organized with [nix](https://nixos.org). To get started, run
 
 ```sh
 nix develop
