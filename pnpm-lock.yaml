@@ -179,8 +179,8 @@ importers:
   .:
     devDependencies:
       '@alpinejs/intersect':
-        specifier: ^3.17.4
-        version: 3.17.4
+        specifier: ^3.17.5
+        version: 3.17.5
       '@fontsource-variable/inter':
         specifier: ^5.3.0
         version: 5.3.0
@@ -208,8 +208,8 @@ importers:
 
 packages:
 
-  '@alpinejs/intersect@3.17.4':
-    resolution: {integrity: sha512-soIfavWRHh1dEs05z6wkKtYf8i/ohIG1EDo51urbURj8HifVLV8hd4oCVEGlKwEwt6NXBZDhWMhKk9SM//JHtQ==}
+  '@alpinejs/intersect@3.17.5':
+    resolution: {integrity: sha512-ajnUJjrx3ygix9uLW0xx4TPzegBNi2cJEVA/Z2kEoqKR5fANXSKcVzWc3NyYO0Fi1DZ0aPYQ3esXIDSNCbQdBw==}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -1917,7 +1917,7 @@ packages:
 
 snapshots:
 
-  '@alpinejs/intersect@3.17.4': {}
+  '@alpinejs/intersect@3.17.5': {}
 
   '@babel/code-frame@7.29.7':
     dependencies:
