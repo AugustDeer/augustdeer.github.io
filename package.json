@@ -17,7 +17,7 @@
     "@types/alpinejs": "^3.17.0",
     "@types/alpinejs__intersect": "^3.13.4",
     "alpinejs": "^3.17.4",
-    "postcss-preset-env": "^11.6.1",
+    "postcss-preset-env": "^11.6.2",
     "typescript": "~7.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:"
