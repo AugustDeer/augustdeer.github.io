@@ -24,5 +24,12 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=12.0.0 <13.0.0",
+      "onFail": "download"
+    }
+  }
 }
