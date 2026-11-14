@@ -21,17 +21,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build with nix
-        run: nix build
+      - name: Install pnpm
+        uses: pnpm/setup@v3
+      - name: Build with pnpm
+        run: pnpm build
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: ./result
+          path: ./dist
 
   deploy:
     environment:

@@ -1,21 +1,11 @@
 {
   description = "My personal website";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flakelight = {
-      url = "github:nix-community/flakelight";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  outputs =
-    { flakelight, ... }:
-    flakelight ./. {
-      devShell.packages =
-        pkgs: with pkgs; [
-          nodejs
-          pnpm
-        ];
-    };
+  outputs = { nixpkgs, ... }: {
+    devShells = builtins.mapAttrs (system: pkgs: {
+      default = import ./shell.nix pkgs;
+    }) nixpkgs.legacyPackages;
+  };
 }
