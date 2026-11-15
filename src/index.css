@@ -1,9 +1,5 @@
 @import "@fontsource-variable/inter/standard.css";
 
-[x-cloak] {
-  display: none !important;
-}
-
 /* Variables */
 :root {
   --body-color: white;
@@ -104,30 +100,35 @@ a {
 }
 
 .slot-machine {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  color: transparent;
+  text-align: center;
 
-  &:not(.paused) {
+  &::before,
+  &::after {
+    left: 50%;
+    translate: -50% 0;
+    color: white;
+    position: absolute;
+    white-space: pre;
     animation: 1.3s cubic-bezier(0.25, 0.1, 0.25, 1) both slot-machine;
+    pointer-events: none;
   }
 
-  span {
-    justify-content: center;
+  &::before {
+    content: attr(data-slots) / "";
     font-weight: 200;
-    user-select: none;
-    display: inline-flex;
-    width: 0;
+    translate: -50% -100%;
+  }
+
+  &::after {
+    content: attr(data-slot-final) / "";
   }
 }
 
 @keyframes slot-machine {
   from {
-    transform: translateY(1lh);
-  }
-
-  to {
-    transform: translateY(calc(0.99lh - 100%));
+    transform: translateY(12lh);
   }
 }
 
@@ -192,6 +193,16 @@ a {
       }
     }
   }
+}
+
+#jokeButton {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }
 
 .contacts {

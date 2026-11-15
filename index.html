@@ -9,62 +9,29 @@
     <link rel="stylesheet" href="/src/index.css" />
     <script type="module" src="src/index.ts"></script>
   </head>
-  <body x-data="{ joke: false }">
+  <body x-data>
     <div class="hero-wrapper">
       <div class="hero-bg"></div>
       <div class="hero-content">
-        <h1 x-data="SlotMachineGlobal">
-          <span
-            x-show="!joke"
-            class="hero-title"
-            x-data="{animating: false}"
-            x-init="animating=true"
-            x-intersect="animating=true"
-            x-intersect:leave.dwell="animating=false"
-          >
-            Hi, I'm
+        <h1>
+          <span x-joke="Hi, I was on"></span>
+          <span class="hero-title">
+            <span x-joke:hide>Hi, I'm</span>
             <span
-              x-show="animating"
               class="slot-machine"
-              :class="animating || 'paused'"
-              @animationEnd="animating=false"
+              x-intersect="$el.getAnimations({subtree: true}).forEach(a => {a.currentTime = 0})"
+              x-joke="America's"
+              data-slots="September&#10;October&#10;November&#10;December&#10;January&#10;February&#10;March&#10;April&#10;May&#10;June&#10;July"
+              x-joke:data-slots="Hong Kong's&#10;Myanmar's&#10;Thailand's&#10;Brazil's&#10;India's&#10;Persia's&#10;Japan's&#10;Spain's&#10;Britain's&#10;Pakistan's&#10;Canada's"
+              data-slot-final="August"
+              x-joke:data-slot-final="America's"
+              >August</span
             >
-              <template x-for="m in months">
-                <span aria-hidden x-text="m"></span>
-              </template>
-              August
-            </span>
-            <span x-cloak x-show="!animating">August</span>
-            Deer!
+            <span x-joke:hide>Deer!</span>
           </span>
-          <span x-show="joke" x-cloak>
-            Hi, I was on
-            <span
-              class="hero-title"
-              x-data="{animating: false}"
-              x-intersect="animating=true"
-              x-intersect:leave.dwell="animating=false"
-            >
-              <span
-                x-show="animating"
-                class="slot-machine"
-                :class="animating || 'paused'"
-                @animationEnd="animating=false"
-              >
-                <template x-for="c in countries">
-                  <span aria-hidden x-text="c+'\'s'"></span>
-                </template>
-                America's
-              </span>
-              <span x-cloak x-show="!animating">America's</span>
-            </span>
-            Got Talent!
-          </span>
+          <span x-joke="Got Talent!"></span>
         </h1>
-        <h3>
-          <span x-show="!joke">Developer, Science Communicator, Close-Up Magician.</span>
-          <span x-cloak x-show="joke">Did you know I was an extra on America's Got Talent?</span>
-        </h3>
+        <h3 x-joke:med>Developer, Science Communicator, Close-Up Magician.</h3>
       </div>
     </div>
 
@@ -72,69 +39,47 @@
       <div class="hobbies">
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2>
-              <span x-show="!joke">Computer Science</span>
-              <span x-cloak x-show="joke">America's Got Talent</span>
-            </h2>
-            <p>
-              <span x-show="!joke">
-                Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a jack of all
-                trades. I'm capable with AI coding tools, but skilled enough to not need them. (This
-                website was
-                <a href="https://github.com/AugustDeer/augustdeer.github.io"
-                  >coded entirely by hand</a
-                >!)
-              </span>
-              <span x-cloak x-show="joke">
-                Did you know I was an extra on America's Got Talent? Did you know I was an extra on
-                America's Got Talent? Did you know I was an extra on America's Got Talent? Did you
-                know I was an extra on America's Got Talent?
-              </span>
+            <h2 x-joke:short>Computer Science</h2>
+            <p x-joke>
+              Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a jack of all trades.
+              I'm capable with AI coding tools, but skilled enough to not need them. (This website
+              was
+              <a href="https://github.com/AugustDeer/augustdeer.github.io">coded entirely by hand</a
+              >!)
             </p>
           </div>
         </div>
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2>
-              <span x-show="!joke">Science Communication</span
-              ><span x-cloak x-show="joke">America's Got Talent</span>
-            </h2>
-            <p>
-              <span x-show="!joke">
-                The only thing I love more than learning about complex science is explaining it to
-                other people. Check out my award winning
-                <a href="https://www.youtube.com/watch?v=ZVo_RrL-tRI">
-                  video on the one-electron universe hypothesis </a
-                >.
-              </span>
-              <span x-cloak x-show="joke">
-                Did you know I was an extra on America's Got Talent? Did you know I was an extra on
-                America's Got Talent? I was an extra on America's Got Talent! Did you know that? Did
-                you know I was an extra on America's Got Talent?
-              </span>
+            <h2 x-joke:short>Science Communication</h2>
+            <p x-joke>
+              The only thing I love more than learning about complex science is explaining it to
+              other people. Check out my award winning
+              <a href="https://www.youtube.com/watch?v=ZVo_RrL-tRI">
+                video on the one-electron universe hypothesis </a
+              >.
             </p>
           </div>
         </div>
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2>
-              <span x-show="!joke">Close-Up Magic</span
-              ><span x-cloak x-show="joke">America's Got Talent</span>
-            </h2>
+            <h2 x-joke:short>Close-Up Magic</h2>
             <p>
-              <span x-show="!joke">
+              <span x-joke>
                 Like every kid, I got one of those magic kits that you play with for 2 seconds and
                 then put into a closet somewhere, except I kept playing. Now I perform at the Magic
                 Castle in Hollywood, and occasionally even on live television.
               </span>
-              <span x-cloak x-show="joke"
-                >Did you know I was an extra on America's Got Talent? Did you know I was an extra on
-                America's Got Talent? Did you know I was an extra on America's Got Talent? I was an
-                extra on America's Got Talent! Did you know that?</span
-              >
               (Did you know I was an
-              <span @click="joke=!joke" style="cursor: pointer">extra</span> on
-              <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a>?)
+              <button
+                type="button"
+                id="jokeButton"
+                @click="$store.joke = !$store.joke"
+                :aria-pressed="$store.joke"
+              >
+                extra
+              </button>
+              on <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a>?)
             </p>
           </div>
         </div>
@@ -145,31 +90,16 @@
       <h3>Where to find me:</h3>
       <ul>
         <li>
-          <span x-show="!joke"
-            >YouTube: <a href="https://www.youtube.com/@augustdeer">@augustdeer</a></span
-          >
-          <span x-cloak x-show="joke"
-            >America's Got Talent:
-            <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a></span
-          >
+          <span x-joke:short>YouTube</span>:
+          <a x-joke:short href="https://www.youtube.com/@augustdeer">@augustdeer</a>
         </li>
         <li>
-          <span x-show="!joke"
-            >Bluesky: <a href="https://bsky.app/profile/augustdeer.com">@augustdeer.com</a></span
-          >
-          <span x-cloak x-show="joke"
-            >America's Got Talent:
-            <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a></span
-          >
+          <span x-joke:short>Bluesky</span>:
+          <a x-joke:short href="https://bsky.app/profile/augustdeer.com">@augustdeer.com</a>
         </li>
         <li>
-          <span x-show="!joke"
-            >Email: <a href="mailto:august@augustdeer.com">august@augustdeer.com</a></span
-          >
-          <span x-cloak x-show="joke"
-            >America's Got Talent:
-            <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a></span
-          >
+          <span x-joke:short>Email</span>:
+          <a x-joke:short href="mailto:august@augustdeer.com">august@augustdeer.com</a>
         </li>
       </ul>
     </div>
