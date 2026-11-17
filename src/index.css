@@ -1,4 +1,66 @@
-@import "@fontsource-variable/inter/standard.css";
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/src/fonts/InterVariable.woff2") format("woff2");
+}
+@font-feature-values InterVariable {
+  @character-variant {
+    cv01: 1;
+    cv02: 2;
+    cv03: 3;
+    cv04: 4;
+    cv05: 5;
+    cv06: 6;
+    cv07: 7;
+    cv08: 8;
+    cv09: 9;
+    cv10: 10;
+    cv11: 11;
+    cv12: 12;
+    cv13: 13;
+    alt-1: 1; /* Alternate one */
+    alt-3: 9; /* Flat-top three */
+    open-4: 2; /* Open four */
+    open-6: 3; /* Open six */
+    open-9: 4; /* Open nine */
+    lc-l-with-tail: 5; /* Lower-case L with tail */
+    simplified-u: 6; /* Simplified u */
+    alt-double-s: 7; /* Alternate German double s */
+    uc-i-with-serif: 8; /* Upper-case i with serif */
+    uc-g-with-spur: 10; /* Capital G with spur */
+    single-story-a: 11; /* Single-story a */
+    compact-lc-f: 12; /* Compact f */
+    compact-lc-t: 13; /* Compact t */
+  }
+  @styleset {
+    ss01: 1;
+    ss02: 2;
+    ss03: 3;
+    ss04: 4;
+    ss05: 5;
+    ss06: 6;
+    ss07: 7;
+    ss08: 8;
+    open-digits: 1; /* Open digits */
+    disambiguation: 2; /* Disambiguation (with zero) */
+    disambiguation-except-zero: 4; /* Disambiguation (no zero) */
+    round-quotes-and-commas: 3; /* Round quotes &amp; commas */
+    square-punctuation: 7; /* Square punctuation */
+    square-quotes: 8; /* Square quotes */
+    circled-characters: 5; /* Circled characters */
+    squared-characters: 6; /* Squared characters */
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  list-style: none;
+  padding: 0;
+}
 
 /* Variables */
 :root {
@@ -10,7 +72,7 @@
   --primary-subtle: oklch(69.6% 0.17 162.48deg);
   --primary-dark: oklch(50.8% 0.118 165.612deg);
   --primary-bg: oklch(26.2% 0.051 172.552deg);
-  --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 10%);
+  --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 30%);
 }
 
 /* General Styles */
@@ -20,10 +82,15 @@
 
 body {
   margin: 0;
-  font-family: "Inter Variable", sans-serif;
+  font-family: InterVariable, sans-serif;
+  font-feature-settings: "liga", "calt";
   font-optical-sizing: auto;
   background-color: var(--body-bg);
-  color: white;
+  color: var(--body-color);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
 }
 
 h3 {
@@ -41,7 +108,7 @@ a {
 
 /* Hero Section */
 .hero-wrapper {
-  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   grid-template-areas: "stack";
   text-align: center;
@@ -55,15 +122,17 @@ a {
   .hero-bg {
     width: 100%;
     height: 100%;
-    background: fixed radial-gradient(transparent 90%, var(--primary-subtle)) 50% 50% / 1rem 1rem;
+    background: fixed radial-gradient(transparent 90%, var(--primary-subtle) 95%) 50% 50% / 1rem
+      1rem;
   }
 
   h1 {
     position: relative;
-    font-size: 2.25rem;
+    font-size: clamp(2.25rem, 1.15rem + 3vw, 5rem);
+    text-wrap: balance;
     font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: 0.025em;
+    line-height: 1.2;
+    letter-spacing: -0.02rem;
 
     &::after {
       content: "";
@@ -79,16 +148,42 @@ a {
       transform-origin: center;
       border-radius: 100%;
       filter: blur(40px);
+      pointer-events: none;
     }
   }
 
   h3 {
     margin-top: 2rem;
+    font-size: clamp(1rem, 0.5rem + 1.5vw, 2.5rem);
+    margin-inline: auto;
     line-height: 2rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -0.025em;
     text-wrap: pretty;
     color: var(--secondary-color);
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 2rem;
+    gap: 5rem;
+
+    .hero-picture {
+      flex: 2 1 auto;
+      width: clamp(5rem, 20vw, 25rem);
+      aspect-ratio: 36 / 82;
+
+      background-color: var(--primary);
+      mask-image: url(/august_fullbody.svg);
+      mask-repeat: no-repeat;
+      mask-size: 100%;
+
+      @media (max-width: 40rem) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -108,7 +203,7 @@ a {
   &::after {
     left: 50%;
     translate: -50% 0;
-    color: white;
+    color: var(--body-color);
     position: absolute;
     white-space: pre;
     animation: 1.3s cubic-bezier(0.25, 0.1, 0.25, 1) both slot-machine;
@@ -138,13 +233,12 @@ a {
 
   .hobbies {
     margin-inline: auto;
-    max-width: 64rem;
-    padding-inline: 2rem;
-    padding-block: 4rem;
+    max-width: 96rem;
+    padding: 2rem;
 
     .hobby-wrapper {
       display: flex;
-      padding-block: 4rem;
+      padding-block: 2rem;
 
       &:nth-child(odd) {
         place-content: end;
@@ -152,11 +246,11 @@ a {
     }
 
     .hobby {
-      max-width: 42rem;
+      max-width: 46rem;
       align-items: center;
       border-radius: 2rem;
       background-color: var(--body-bg);
-      padding: 1.25rem;
+      padding: 2rem;
       outline: 2px solid var(--primary-subtle);
       transition: all 150ms;
 
@@ -169,12 +263,14 @@ a {
     h2 {
       flex-basis: 25%;
       text-align: center;
-      font-size: 1.25rem;
+      font-size: clamp(1.25rem, 5vw, 2rem);
       font-weight: 600;
     }
 
     p {
       flex-basis: 75%;
+      line-height: 1.5;
+      text-wrap: pretty;
     }
 
     @media (min-width: 40rem) {
@@ -185,7 +281,6 @@ a {
 
       h2 {
         text-align: right;
-        font-size: 1.5rem;
       }
 
       p {

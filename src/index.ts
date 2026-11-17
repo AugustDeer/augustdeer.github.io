@@ -17,7 +17,7 @@ Alpine.directive("joke", (el, { value, expression }, { effect }) => {
         el.setAttribute(value, jokeState ? expression : originalData);
       });
   } else {
-    const originalContent = el.textContent;
+    const originalContent = el.innerHTML;
     const isLink = el instanceof HTMLAnchorElement;
     const originalHref = isLink ? el.href : "";
     let jokeContent: string;
@@ -29,7 +29,7 @@ Alpine.directive("joke", (el, { value, expression }, { effect }) => {
 
     effect(() => {
       const jokeState: boolean = Alpine.store("joke") as boolean;
-      el.textContent = jokeState ? jokeContent : originalContent;
+      el.innerHTML = jokeState ? jokeContent : originalContent;
       if (isLink)
         el.href = jokeState ? "https://www.youtube.com/watch?v=vZYMbSHRoas" : originalHref;
     });
