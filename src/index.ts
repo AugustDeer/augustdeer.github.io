@@ -1,7 +1,4 @@
-import intersect from "@alpinejs/intersect";
 import Alpine from "alpinejs";
-
-Alpine.plugin(intersect);
 
 Alpine.store("joke", false);
 
@@ -36,6 +33,21 @@ Alpine.directive("joke", (el, { value, expression }, { effect }) => {
   }
 });
 
-window.Alpine = Alpine;
-
 Alpine.start();
+
+function setupReanimate() {
+  const slotMachine = document.querySelector(".slot-machine");
+  if (slotMachine) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.getAnimations({ subtree: true }).forEach((a) => a.play());
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    observer.observe(slotMachine);
+  }
+}
+
+document.getElementById("jokeButton")?.addEventListener("click", setupReanimate, { once: true });

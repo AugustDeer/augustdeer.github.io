@@ -1,63 +1,13 @@
-@font-face {
-  font-family: InterVariable;
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/src/fonts/InterVariable.woff2") format("woff2");
-}
-@font-feature-values InterVariable {
-  @character-variant {
-    cv01: 1;
-    cv02: 2;
-    cv03: 3;
-    cv04: 4;
-    cv05: 5;
-    cv06: 6;
-    cv07: 7;
-    cv08: 8;
-    cv09: 9;
-    cv10: 10;
-    cv11: 11;
-    cv12: 12;
-    cv13: 13;
-    alt-1: 1; /* Alternate one */
-    alt-3: 9; /* Flat-top three */
-    open-4: 2; /* Open four */
-    open-6: 3; /* Open six */
-    open-9: 4; /* Open nine */
-    lc-l-with-tail: 5; /* Lower-case L with tail */
-    simplified-u: 6; /* Simplified u */
-    alt-double-s: 7; /* Alternate German double s */
-    uc-i-with-serif: 8; /* Upper-case i with serif */
-    uc-g-with-spur: 10; /* Capital G with spur */
-    single-story-a: 11; /* Single-story a */
-    compact-lc-f: 12; /* Compact f */
-    compact-lc-t: 13; /* Compact t */
-  }
-  @styleset {
-    ss01: 1;
-    ss02: 2;
-    ss03: 3;
-    ss04: 4;
-    ss05: 5;
-    ss06: 6;
-    ss07: 7;
-    ss08: 8;
-    open-digits: 1; /* Open digits */
-    disambiguation: 2; /* Disambiguation (with zero) */
-    disambiguation-except-zero: 4; /* Disambiguation (no zero) */
-    round-quotes-and-commas: 3; /* Round quotes &amp; commas */
-    square-punctuation: 7; /* Square punctuation */
-    square-quotes: 8; /* Square quotes */
-    circled-characters: 5; /* Circled characters */
-    squared-characters: 6; /* Squared characters */
-  }
-}
+@import "./fonts/Inter.css";
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+ol,
+ul {
   list-style: none;
   padding: 0;
 }
@@ -82,8 +32,7 @@
 
 body {
   margin: 0;
-  font-family: InterVariable, sans-serif;
-  font-feature-settings: "liga", "calt";
+  font-family: "Inter Variable", sans-serif;
   font-optical-sizing: auto;
   background-color: var(--body-bg);
   color: var(--body-color);
@@ -91,10 +40,6 @@ body {
 
 *:focus-visible {
   outline: 2px solid var(--primary);
-}
-
-h3 {
-  font-size: 1.125rem;
 }
 
 a {
@@ -139,27 +84,25 @@ a {
       z-index: -10;
       position: absolute;
       inset: 0;
-      top: -50%;
-      width: 5em;
-      height: 200%;
-      background-color: var(--primary-dark);
+      top: -150%;
+      width: 10em;
+      height: 400%;
+      background: radial-gradient(var(--primary-dark) 10%, transparent 70%);
       place-self: center;
       rotate: -12deg;
       transform-origin: center;
-      border-radius: 100%;
-      filter: blur(40px);
       pointer-events: none;
     }
   }
 
-  h3 {
+  p {
     margin-top: 2rem;
     font-size: clamp(1rem, 0.5rem + 1.5vw, 2.5rem);
     margin-inline: auto;
-    line-height: 2rem;
+    line-height: 1.4;
     font-weight: 400;
     letter-spacing: -0.025em;
-    text-wrap: pretty;
+    text-wrap: balance;
     color: var(--secondary-color);
   }
 
@@ -190,7 +133,7 @@ a {
 .hero-title {
   height: 1lh;
   overflow: hidden;
-  display: block;
+  display: inline-flex;
   justify-content: center;
 }
 
@@ -206,8 +149,11 @@ a {
     color: var(--body-color);
     position: absolute;
     white-space: pre;
-    animation: 1.3s cubic-bezier(0.25, 0.1, 0.25, 1) both slot-machine;
     pointer-events: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: 1.3s cubic-bezier(0.25, 0.1, 0.25, 1) both slot-machine;
+    }
   }
 
   &::before {
@@ -252,7 +198,9 @@ a {
       background-color: var(--body-bg);
       padding: 2rem;
       outline: 2px solid var(--primary-subtle);
-      transition: all 150ms;
+      transition:
+        translate 150ms,
+        box-shadow 150ms;
 
       &:hover {
         translate: 0 -0.25rem;
@@ -304,4 +252,8 @@ a {
   margin-inline: auto;
   max-width: 32rem;
   padding: 5rem 1rem;
+
+  h2 {
+    font-size: 1.125rem;
+  }
 }

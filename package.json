@@ -12,9 +12,7 @@
     "preview": "vp preview"
   },
   "devDependencies": {
-    "@alpinejs/intersect": "^3.17.5",
     "@types/alpinejs": "^3.17.0",
-    "@types/alpinejs__intersect": "^3.13.4",
     "alpinejs": "^3.17.5",
     "postcss-preset-env": "^11.6.2",
     "typescript": "~7.0.2",
