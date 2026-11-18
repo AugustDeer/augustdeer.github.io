@@ -1,4 +1,4 @@
-@import "./fonts/Inter.css";
+@import "/src/fonts/Inter.css";
 
 *,
 *::before,
@@ -137,7 +137,7 @@ a {
   justify-content: center;
 }
 
-.slot-machine {
+#slotMachine {
   position: relative;
   color: transparent;
   text-align: center;

@@ -1,6 +1,6 @@
 {
   "name": "webdev-test",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "author": "August Deer <august@augustdeer.com> (https://augustdeer.com)",
   "type": "module",
@@ -12,8 +12,6 @@
     "preview": "vp preview"
   },
   "devDependencies": {
-    "@types/alpinejs": "^3.17.0",
-    "alpinejs": "^3.17.5",
     "postcss-preset-env": "^11.6.2",
     "typescript": "~7.0.2",
     "vite": "catalog:",

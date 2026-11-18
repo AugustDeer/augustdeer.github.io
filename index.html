@@ -17,31 +17,33 @@
     />
 
     <link rel="stylesheet" href="/src/index.css" />
-    <script type="module" src="src/index.ts"></script>
+    <script type="module" src="/src/index.ts"></script>
   </head>
 
-  <body x-data>
+  <body>
     <div class="hero-wrapper">
       <div class="hero-bg"></div>
       <div class="hero-content">
         <div class="hero-picture"></div>
         <div class="hero-text">
           <h1>
-            <span x-joke="Hi, I was on">Hi, I'm</span>
+            <span data-joke="Hi, I was on">Hi, I'm</span>
             <span class="hero-title">
               <span
-                class="slot-machine"
-                x-joke="America's"
+                id="slotMachine"
+                data-joke="America's"
                 data-slots="September&#10;October&#10;November&#10;December&#10;January&#10;February&#10;March&#10;April&#10;May&#10;June&#10;July"
-                x-joke:data-slots="Hong Kong's&#10;Myanmar's&#10;Thailand's&#10;Brazil's&#10;India's&#10;Persia's&#10;Japan's&#10;Spain's&#10;Britain's&#10;Pakistan's&#10;Canada's"
+                data-joke-slots="Hong Kong's&#10;Myanmar's&#10;Thailand's&#10;Brazil's&#10;India's&#10;Persia's&#10;Japan's&#10;Spain's&#10;Britain's&#10;Pakistan's&#10;Canada's"
                 data-slot-final="August"
-                x-joke:data-slot-final="America's"
+                data-joke-slot-final="America's"
                 >August</span
               >
             </span>
-            <span x-joke="Got Talent!">Deer!</span>
+            <span data-joke="Got Talent!">Deer!</span>
           </h1>
-          <p x-joke:med>Developer, Science Communicator, Close-Up Magician.</p>
+          <p data-joke="Did you know I was an extra on America's Got Talent?">
+            Developer, Science Communicator, Close-Up Magician.
+          </p>
         </div>
       </div>
     </div>
@@ -50,8 +52,8 @@
       <div class="hobbies">
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2 x-joke:short>Computer Science</h2>
-            <p x-joke>
+            <h2 data-joke="short">Computer Science</h2>
+            <p data-joke>
               Frontend, Backend, Python, Rust, even a tiny bit of Haskell. I'm a jack of all trades,
               and skilled with or without AI coding tools. (This website was
               <a href="https://github.com/AugustDeer/augustdeer.github.io">coded entirely by hand</a
@@ -61,8 +63,8 @@
         </div>
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2 x-joke:short>Science Communication</h2>
-            <p x-joke>
+            <h2 data-joke="short">Science Communication</h2>
+            <p data-joke>
               The only thing I love more than learning about complex science is explaining it to
               other people. Check out my award winning
               <a href="https://www.youtube.com/watch?v=ZVo_RrL-tRI">
@@ -73,23 +75,15 @@
         </div>
         <div class="hobby-wrapper">
           <div class="hobby">
-            <h2 x-joke:short>Close-Up Magic</h2>
+            <h2 data-joke="short">Close-Up Magic</h2>
             <p>
-              <span x-joke>
+              <span data-joke>
                 Like every kid, I got one of those magic kits that you play with for 2 seconds and
                 then put into a closet somewhere, except I kept playing. Now I perform at the Magic
                 Castle in Hollywood, and occasionally even on live television.
               </span>
-              (Did you know I was an
-              <button
-                type="button"
-                id="jokeButton"
-                @click="$store.joke = !$store.joke"
-                :aria-pressed="$store.joke"
-              >
-                extra
-              </button>
-              on <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a>?)
+              (Did you know I was an <button type="button" id="jokeButton">extra</button> on
+              <a href="https://www.youtube.com/watch?v=vZYMbSHRoas">America's Got Talent</a>?)
             </p>
           </div>
         </div>
@@ -100,16 +94,16 @@
       <h2>Where to find me:</h2>
       <ul>
         <li>
-          <span x-joke:short>YouTube</span>:
-          <a x-joke:short href="https://www.youtube.com/@augustdeer">@augustdeer</a>
+          <span data-joke="short">YouTube</span>:
+          <a data-joke="short" href="https://www.youtube.com/@augustdeer">@augustdeer</a>
         </li>
         <li>
-          <span x-joke:short>Bluesky</span>:
-          <a x-joke:short href="https://bsky.app/profile/augustdeer.com">@augustdeer.com</a>
+          <span data-joke="short">Bluesky</span>:
+          <a data-joke="short" href="https://bsky.app/profile/augustdeer.com">@augustdeer.com</a>
         </li>
         <li>
-          <span x-joke:short>Email</span>:
-          <a x-joke:short href="mailto:august@augustdeer.com">august@augustdeer.com</a>
+          <span data-joke="short">Email</span>:
+          <a data-joke="short" href="mailto:august@augustdeer.com">august@augustdeer.com</a>
         </li>
       </ul>
     </div>

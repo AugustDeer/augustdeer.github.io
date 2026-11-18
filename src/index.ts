@@ -1,53 +1,60 @@
-import Alpine from "alpinejs";
-
-Alpine.store("joke", false);
-
 const JOKE =
   "Did you know I was an extra on America's Got Talent? Did you know I was an extra on America's Got Talent? I was an extra on America's Got Talent! Did you know that? Did you know I was an extra on America's Got Talent?";
 
-Alpine.directive("joke", (el, { value, expression }, { effect }) => {
-  if (value && value.startsWith("data-")) {
-    const originalData = el.getAttribute(value);
-    if (originalData !== null)
-      effect(() => {
-        const jokeState: boolean = Alpine.store("joke") as boolean;
-        el.setAttribute(value, jokeState ? expression : originalData);
-      });
-  } else {
-    const originalContent = el.innerHTML;
-    const isLink = el instanceof HTMLAnchorElement;
-    const originalHref = isLink ? el.href : "";
-    let jokeContent: string;
-    if (expression) jokeContent = expression;
-    else if (value == "hide") jokeContent = "";
-    else if (value == "short") jokeContent = "America's Got Talent";
-    else if (value == "med") jokeContent = "Did you know I was an extra on America's Got Talent?";
-    else jokeContent = JOKE;
+let jokeState = false;
 
-    effect(() => {
-      const jokeState: boolean = Alpine.store("joke") as boolean;
-      el.innerHTML = jokeState ? jokeContent : originalContent;
-      if (isLink)
-        el.href = jokeState ? "https://www.youtube.com/watch?v=vZYMbSHRoas" : originalHref;
-    });
-  }
-});
+// Setup joke text toggles
+const callbacks: Array<() => void> = [];
+function setupJoke(el: HTMLElement) {
+  const originalContent = el.innerHTML;
+  const isLink = el instanceof HTMLAnchorElement;
+  const originalHref = isLink ? el.href : "";
+  if (el.dataset.joke === undefined) return;
+  const jokeContent =
+    el.dataset.joke === ""
+      ? JOKE
+      : el.dataset.joke === "short"
+        ? "America's Got Talent"
+        : el.dataset.joke;
 
-Alpine.start();
-
-function setupReanimate() {
-  const slotMachine = document.querySelector(".slot-machine");
-  if (slotMachine) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.getAnimations({ subtree: true }).forEach((a) => a.play());
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-    observer.observe(slotMachine);
-  }
+  callbacks.push(() => {
+    el.innerHTML = jokeState ? jokeContent : originalContent;
+    if (isLink) el.href = jokeState ? "https://www.youtube.com/watch?v=vZYMbSHRoas" : originalHref;
+  });
 }
 
-document.getElementById("jokeButton")?.addEventListener("click", setupReanimate, { once: true });
+const jokeElements = Array.from(document.querySelectorAll("*[data-joke]")).filter(
+  (el) => el instanceof HTMLElement,
+);
+jokeElements.forEach(setupJoke);
+
+// Special slot machine toggle
+const slotMachine = document.getElementById("slotMachine")!;
+const originalSlots = slotMachine.dataset.slots;
+const originalSlotFinal = slotMachine.dataset.slotFinal;
+function toggleSlots() {
+  slotMachine.dataset.slots = jokeState ? slotMachine.dataset.jokeSlots : originalSlots;
+  slotMachine.dataset.slotFinal = jokeState ? slotMachine.dataset.jokeSlotFinal : originalSlotFinal;
+}
+callbacks.push(toggleSlots);
+
+// Reanimate slot-machine after joke
+function setupReanimate() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.getAnimations({ subtree: true }).forEach((a) => a.play());
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  observer.observe(slotMachine);
+}
+
+// Attach callbacks to joke button
+const jokeButton = document.getElementById("jokeButton")!;
+jokeButton.addEventListener("click", () => {
+  jokeState = !jokeState;
+  callbacks.forEach((f) => f());
+});
+jokeButton.addEventListener("click", setupReanimate, { once: true });
